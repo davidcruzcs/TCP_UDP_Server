@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-public class UDPMain {
+public class UDPMain  {
 	
 	public static ExecutorService tpes;
 	
@@ -36,14 +36,14 @@ public class UDPMain {
   
 		
        DatagramSocket serverSocket = new DatagramSocket(9876);
-          byte[] receiveData = new byte[1024];
-          while(true)
-             {
+       byte[] receiveData = new byte[1024];
+       while(true)
+            {
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                 serverSocket.receive(receivePacket);
                 tpes.execute(new UDPWorkerThread(receivePacket, writer));
                 
-             }
+            }
         
           
           
